@@ -1,0 +1,18 @@
+
+
+<h2> Your Answer </h2>
+
+
+<%= form_for [@question, Answer.new] do |form| %>
+
+     <div class="form-group">
+        <%=form.text_area :body, placeholder: "Add your answer", rows:10, class:"form-control" %><br>
+
+         <%=form.hidden_field :user_id, value: current_user.id, class:'d-none' %>
+         <%=form.hidden_field :question_id, value: @question.id %>
+      </div>
+
+    <div>
+       <%=form.submit 'Post Your Answer', class: 'btn-primary' %>
+   </div>
+<% end %>

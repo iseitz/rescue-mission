@@ -1,0 +1,39 @@
+
+  <div class="col-md-8 question-details">
+    <div class="question-wrapper">
+      <h2 class="question-title"><%=@question.headline %></h2>
+        <div class="username"><%= @user.username %></div>
+        <div class="question-body"><%= @question.body %></div>
+    </div>
+  </div>
+
+  <div class="col-md-8 answers-details">
+    <% if @answers.length > 0 %>
+
+      <div class="answers-wrapper">
+        <h2>There are <%= @answers.length %> Answers </h2>
+        <div class='answers container'>
+
+
+        <div id="answers">
+          <% for answer in @answers %>
+          <div class="answer">
+            <%=simple_format answer.body %>
+            <h6> posted by <%= User.find(answer.user_id).username %></h6>
+            </div>
+            <% end %>
+        </div>
+        </div>
+
+      </div>
+
+    <% else %>
+
+      <div class="answers-wrapper">
+        <h2>There are no answers yet</h2>
+      </div>
+
+   <% end %>
+ </div>
+
+      <%= render '/answers/new'%>

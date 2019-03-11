@@ -1,2 +1,25 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
+<% if user_signed_in? %>
+   <a href="<%= destroy_user_session_path%>" data-method="delete">
+     <i class="fa fa-user"></i>
+   </a>
+<% else %>
+   <a href="<%= new_user_session_path %>">
+     <i class="fa fa-sign-in"></i>
+   </a>
+<% end %>
+<table>
+  <tr>
+    <th>Top Questions</th>
+  </tr>
+  <%=link_to "New question", new_question_path, class:"ask-question" %>
+
+  <% @questions.each do |question| %>
+  <tr>
+    <td>
+      <% date_time = question.created_at %>
+      <%=date_time.strftime("Posted on %B %d %Y") %><br>
+      <%=link_to question.headline, question_path(question), class: 'view-question' %>
+    </td>
+  </tr>
+  <% end %>
+</table>
