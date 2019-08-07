@@ -1,7 +1,7 @@
 
   <div class="col-md-8 question-details">
     <div class="question-wrapper">
-      <h2 class="question-title"><%=@question.headline %></h2>
+      <h4 class="question-title"><%=@question.headline %></h4>
         <div class="username"><%= @user.username %></div>
         <div class="question-body"><%= @question.body %></div>
     </div>
@@ -10,11 +10,11 @@
   <div class="col-md-8 answers-details">
     <% if @answers.length === 0 %>
         <div class="answers-wrapper">
-            <h2>There are no answers yet</h2>
+            <h4>There are no answers yet</h4>
         </div>
     <% else %>
       <div class="answers-wrapper">
-        <h2>There are <%= @answers.length %> Answers </h2>
+        <h4>There are <%= @answers.length %> Answers </h4>
 
         <% @question.answers.order(:created_at).each do |answer|%>
           <% @question_user = answer.user %>
@@ -26,5 +26,5 @@
  </div>
 
 
-    <h2> Your Answer </h2>
+    <h4> Your Answer </h4>
     <%= render '/answers/new'%>

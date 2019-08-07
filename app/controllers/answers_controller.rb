@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
     else
       flash[:alert] = "Failed to save the answer."
       @errors = @answer.errors.full_messages
-      render :new
+      render :action => '_new'
     end
   end
 

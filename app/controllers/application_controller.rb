@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_pemitted_parameters, if: :devise_controller?
-  
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -8,7 +10,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_pemitted_parameters
-    added_attrs = [:username, :email, :password, :passowrd_confirmation, :remember_me]
+    added_attrs = %i[username email password passowrd_confirmation remember_me]
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
