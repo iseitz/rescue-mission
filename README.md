@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rescue-mission is a website like stackoverflow.com for posting questions and answers.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+* Ruby version 2.6.0
 
 * Configuration
+Launch the rails server in your console with the "rails s" command. It runs and shows the website on "localhost:3000" in your web browser.
 
 * Database creation
+ rake db:create  (DB used is postgreSQL)
+ 
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
